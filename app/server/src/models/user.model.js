@@ -3,7 +3,7 @@ const UserModel = (sequelize, DataTypes) => {
     fullName: DataTypes.STRING,
     email: DataTypes.STRING,
     phone: DataTypes.STRING,
-    whatApp: DataTypes.STRING,
+    whatsApp: DataTypes.STRING,
   });
 
   return User;

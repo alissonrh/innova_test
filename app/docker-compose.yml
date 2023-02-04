@@ -25,6 +25,7 @@ services:
       - ./server:/app-backend
     platform: linux/x86_64
     working_dir: /app-backend
+    command: npm run dev && npm run db:reset
     depends_on:
       db:
         condition: service_healthy
