@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 
 const User = require('./controllers/user.controller');
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 

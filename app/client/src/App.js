@@ -1,10 +1,11 @@
-import './App.css';
+import UserProvider from './context/UserProvider';
+import UsersPage from './screens/UsersPage';
 
 function App() {
   return (
-    <div className="App">
-    FUNCIONAAA
-    </div>
+    <UserProvider>
+      <UsersPage />
+    </UserProvider>
   );
 }
 
