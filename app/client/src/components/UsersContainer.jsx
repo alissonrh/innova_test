@@ -1,21 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { getAllUsers } from '../api/request';
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import UserContext from '../context/UserContext';
 import User from './User';
 
-function UsersContainer() {
-  const [users, setUsers] = useState([]);
+function UsersContainer({ handleDelete, handleEdit }) {
+  const { users } = useContext(UserContext);
 
-  const getUsers = async () => {
-    setUsers(await getAllUsers());
-  };
-
-  const handleDelete = async () => {
-    getUsers();
-  };
-
-  useEffect(() => {
-    getUsers();
-  }, []);
   return (
     <article
       className="border-2 p-3 shadow-2xl"
@@ -83,9 +73,9 @@ text-lg"
                 key={ index }
               >
                 <User
-                  user={ user }
-                  index={ index }
+                  handleEdit={ handleEdit }
                   handleDelete={ handleDelete }
+                  user={ user }
                 />
 
               </div>
@@ -97,5 +87,10 @@ text-lg"
     </article>
   );
 }
+
+UsersContainer.propTypes = {
+  handleDelete: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
+};
 
 export default UsersContainer;

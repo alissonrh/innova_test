@@ -7,6 +7,9 @@ function UserProvider({ children }) {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [whatsApp, setWhatsApp] = useState('+55');
+  const [_editUser, setEditUser] = useState({});
+  const [users, setUsers] = useState([]);
+  const [edit, setEdit] = useState(true);
 
   const contextUser = useMemo(() => ({
     fullName,
@@ -17,7 +20,13 @@ function UserProvider({ children }) {
     setPhone,
     whatsApp,
     setWhatsApp,
-  }), [email, fullName, phone, whatsApp]);
+    users,
+    setUsers,
+    edit,
+    setEdit,
+    _editUser,
+    setEditUser,
+  }), [email, fullName, phone, whatsApp, users, edit, _editUser]);
 
   return (
     <UserContext.Provider value={ contextUser }>

@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function User({ user, handleDelete }) {
+function User({ user, handleDelete, handleEdit }) {
   const { id, fullName, email, phone, whatsApp } = user;
+
   return (
     <>
       <p
@@ -38,20 +39,21 @@ function User({ user, handleDelete }) {
       <button
         className="bg-[#056CF9] text-white w-20"
         type="button"
-        onClick={ () => handleDelete(id) }
+        onClick={ () => handleEdit(id) }
       >
-        Excluir
+        Editar
       </button>
       <button
         className="bg-[#056CF9] text-white rounded-r-md w-20"
         type="button"
         onClick={ () => handleDelete(id) }
       >
-        Editar
+        Excluir
       </button>
     </>
   );
 }
+
 User.propTypes = {
   user: PropTypes.shape({
     fullName: PropTypes.string,
@@ -61,6 +63,7 @@ User.propTypes = {
     whatsApp: PropTypes.string,
   }).isRequired,
   handleDelete: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
 };
 
 export default User;

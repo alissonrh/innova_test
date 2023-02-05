@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import UserContext from '../context/UserContext';
 import EmailInput from './EmailInput';
 import NameInput from './NameInput';
 import PhoneInput from './PhoneInput';
 import WhatsAppInput from './WhatsAppInput';
 
-function UserForm() {
+function UserForm({ createUser, editUserAtForm }) {
   const MIN_NOME = 12;
   const MIN_PHONE = 11;
   const MIN_WHATSAPP = 14;
-  const { fullName, email, phone, whatsApp } = useContext(UserContext);
+  const { fullName, email, phone, whatsApp,
+    edit, _editUser } = useContext(UserContext);
 
   const validate = () => (
     fullName.length >= MIN_NOME
@@ -33,22 +35,45 @@ function UserForm() {
       <EmailInput />
       <PhoneInput />
       <WhatsAppInput />
-      <button
-        className={
-          `${!validate()
-            ? 'opacity-40'
-            : 'opacity-100'}
-          text-xl my-1 bg-[#036B52] text-white p-1 text-center rounded`
-        }
-        type="button"
-        /* onClick={ (event) => createUser(event) } */
-        disabled={ !validate() }
-        data-testid="admin_manage__button-register"
-      >
-        CADASTRAR
-      </button>
+      {
+        edit ? (
+          <button
+            className={
+              `${!validate()
+                ? 'opacity-40'
+                : 'opacity-100'}
+            text-xl my-1 bg-[#036B52] text-white p-1 text-center rounded`
+            }
+            type="button"
+            onClick={ () => createUser() }
+            disabled={ !validate() }
+          >
+            CADASTRAR
+          </button>)
+          : (
+            <button
+              className={
+                `${!validate()
+                  ? 'opacity-40'
+                  : 'opacity-100'}
+          text-xl my-1 bg-[#03136b] text-white p-1 text-center rounded`
+              }
+              type="button"
+              onClick={ () => editUserAtForm(_editUser.id) }
+              disabled={ !validate() }
+            >
+              ATUALIZAR
+            </button>
+          )
+      }
+
     </form>
   );
 }
+
+UserForm.propTypes = {
+  createUser: PropTypes.func.isRequired,
+  editUserAtForm: PropTypes.func.isRequired,
+};
 
 export default UserForm;

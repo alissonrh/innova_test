@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import UserContext from '../context/UserContext';
 
 function NameInput() {
@@ -30,7 +29,3 @@ function NameInput() {
 }
 
 export default NameInput;
-
-NameInput.propTypes = {
-  setName: PropTypes.func,
-}.isRequired;
