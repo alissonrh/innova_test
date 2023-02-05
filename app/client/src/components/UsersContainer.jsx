@@ -15,9 +15,8 @@ function UsersContainer({ handleDelete, handleEdit }) {
       } }
     >
       <div
-        className="flex
-      text-center items-center justify-center my-3
-text-lg"
+        className="flex text-base font-light
+      text-center items-center justify-center my-3"
       >
         <p
           className="w-16"
@@ -46,19 +45,19 @@ text-lg"
         <p
           className="w-44"
         >
-          WhatApp
+          WhatsApp
 
         </p>
         <p
           className="w-20"
         >
-          Editar
+          Edit
 
         </p>
         <p
           className="w-20"
         >
-          Excluir
+          Delete
 
         </p>
       </div>

@@ -42,13 +42,13 @@ function UserForm({ createUser, editUserAtForm }) {
               `${!validate()
                 ? 'opacity-40'
                 : 'opacity-100'}
-            text-xl my-1 bg-[#036B52] text-white p-1 text-center rounded`
+                text-base font-light my-1 bg-[#036B52] text-white p-1 text-center rounded`
             }
             type="button"
             onClick={ () => createUser() }
             disabled={ !validate() }
           >
-            CADASTRAR
+            REGISTER
           </button>)
           : (
             <button
@@ -56,13 +56,14 @@ function UserForm({ createUser, editUserAtForm }) {
                 `${!validate()
                   ? 'opacity-40'
                   : 'opacity-100'}
-          text-xl my-1 bg-[#03136b] text-white p-1 text-center rounded`
+           my-1 bg-[#03136b] text-white p-1 text-center 
+          text-base font-light rounded`
               }
               type="button"
               onClick={ () => editUserAtForm(_editUser.id) }
               disabled={ !validate() }
             >
-              ATUALIZAR
+              UPDATE
             </button>
           )
       }

@@ -46,7 +46,7 @@ function UsersPage() {
   };
 
   useEffect(() => {
-    if (Object.keys(_editUser).length > 0) {
+    if (Object.values(_editUser).length > 0) {
       setFullName(_editUser.fullName);
       setEmail(_editUser.email);
       setPhone(_editUser.phone);
@@ -69,10 +69,18 @@ function UsersPage() {
   }, []);
 
   return (
-    <>
+    <div
+      className="font-font-family"
+    >
+      <p
+        className="text-4xl my-8 text-center font-bold text-gray-700"
+      >
+        CONTACT LIST
+
+      </p>
       <UserForm createUser={ createUser } editUserAtForm={ editUserAtForm } />
       <UserContainer handleDelete={ handleDelete } handleEdit={ handleEdit } />
-    </>
+    </div>
   );
 }
 

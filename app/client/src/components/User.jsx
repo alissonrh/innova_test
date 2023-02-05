@@ -5,7 +5,9 @@ function User({ user, handleDelete, handleEdit }) {
   const { id, fullName, email, phone, whatsApp } = user;
 
   return (
-    <>
+    <div
+      className="text-base font-light flex"
+    >
       <p
         className="bg-[#2FC18C] rounded-l-md w-16"
       >
@@ -41,16 +43,16 @@ function User({ user, handleDelete, handleEdit }) {
         type="button"
         onClick={ () => handleEdit(id) }
       >
-        Editar
+        Edit
       </button>
       <button
-        className="bg-[#056CF9] text-white rounded-r-md w-20"
+        className="bg-[#eb4b73] text-white rounded-r-md w-20"
         type="button"
         onClick={ () => handleDelete(id) }
       >
-        Excluir
+        Delete
       </button>
-    </>
+    </div>
   );
 }
 
