@@ -14,5 +14,5 @@ No diretório "innova_test"
 5. No diretório "app", execute o comando `docker-compose up --build` para construir e iniciar os containers do Docker.
 6. Acesse http://localhost:3000
 
-Ao seguir esses passos, sua aplicação estará pronta para uso. Caso precise resetar o banco de dados, basta executar o comando `npm run db:reset` na pasta "app/server".
+Ao seguir esses passos, a aplicação estará pronta para uso. Caso precise resetar o banco de dados, basta executar o comando `npm run db:reset` no diretório "app/server".
 
