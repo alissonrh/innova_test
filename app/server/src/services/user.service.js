@@ -1,4 +1,5 @@
-const { User } = require('../models/');
+const { User } = require('../models');
+const validate = require('./validation/validateData');
 
 const getAll = async () => {
   const users = await User.findAll();
@@ -13,16 +14,24 @@ const getById = async (id) => {
 
 
 const createUser = async (fullName, email, phone, whatsApp) => {
+  const validateInput = validate({ fullName, email, phone, whatsApp })
+  if (validateInput.type) return validateInput;
+
   const newUser = await User.create({ fullName, email, phone, whatsApp });
-  return newUser;
+  return { type: 201, message: newUser };
 };
 
 const updateUser = async (id, fullName, email, phone, whatsApp) => {
+
+  const validateInput = validate({ fullName, email, phone, whatsApp })
+  console.log(validateInput);
+  if (validateInput.type) return validateInput;
+
   const [updatedUser] = await User.update(
     { fullName, email, phone, whatsApp },
     { where: { id } },
   );
-  return updatedUser;
+  return { type: 200, message: 'Usuário atualizado com sucesso!', updatedUser }
 };
 
 const deleteUser = async (id) => {
